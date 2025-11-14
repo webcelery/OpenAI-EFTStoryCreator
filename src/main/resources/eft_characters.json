@@ -1,0 +1,21 @@
+{
+  "traders": [
+    { "name": "Prapor",      "category": "Trader", "bio": "Norvinsk military logistics; early-game guns/ammo.", "source": "https://escapefromtarkov.fandom.com/wiki/Prapor" },
+    { "name": "Therapist",   "category": "Trader", "bio": "Medical supplies and barter items.",                 "source": "https://escapefromtarkov.fandom.com/wiki/Therapist" },
+    { "name": "Fence",       "category": "Trader", "bio": "Black market trader.",                               "source": "https://escapefromtarkov.fandom.com/wiki/Fence" },
+    { "name": "Skier",       "category": "Trader", "bio": "Guns, mods, shady deals.",                           "source": "https://escapefromtarkov.fandom.com/wiki/Skier" },
+    { "name": "Peacekeeper", "category": "Trader", "bio": "UN weapons & ammo.",                                 "source": "https://escapefromtarkov.fandom.com/wiki/Peacekeeper" },
+    { "name": "Mechanic",    "category": "Trader", "bio": "Weapon modding expert.",                             "source": "https://escapefromtarkov.fandom.com/wiki/Mechanic" },
+    { "name": "Ragman",      "category": "Trader", "bio": "Armor, rigs, clothing.",                             "source": "https://escapefromtarkov.fandom.com/wiki/Ragman" },
+    { "name": "Jaeger",      "category": "Trader", "bio": "Hunting gear, survival.",                            "source": "https://escapefromtarkov.fandom.com/wiki/Jaeger" }
+  ],
+
+  "bosses": [
+    { "name": "Tagilla",   "category": "Boss", "bio": "Factory maniac with sledgehammer.",     "source": "https://escapefromtarkov.fandom.com/wiki/Tagilla" },
+    { "name": "Reshala",   "category": "Boss", "bio": "Customs gang leader with guards.",      "source": "https://escapefromtarkov.fandom.com/wiki/Reshala" },
+    { "name": "Killa",     "category": "Boss", "bio": "Interchange boss with iconic Mask.",    "source": "https://escapefromtarkov.fandom.com/wiki/Killa" },
+    { "name": "Shturman",  "category": "Boss", "bio": "Woods marksman.",                       "source": "https://escapefromtarkov.fandom.com/wiki/Shturman" },
+    { "name": "Sanitar",   "category": "Boss", "bio": "Shoreline rogue doctor.",               "source": "https://escapefromtarkov.fandom.com/wiki/Sanitar" },
+    { "name": "Glukhar",   "category": "Boss", "bio": "Reserve strategist with squad.",        "source": "https://escapefromtarkov.fandom.com/wiki/Glukhar" }
+  ]
+}
