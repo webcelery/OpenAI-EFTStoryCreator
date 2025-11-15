@@ -3,7 +3,7 @@
 ## OpenAI Setup
 1. Ensure your API key is an environment variable named `OPENAI_API_KEY`
 2. Directly hardcode and replace `null` with API key inside `OpenAIService api = new OpenAIService(null);` ***NOT RECOMMENDED***!
-3. Run EFT_StoryCreator
+3. Run Main
 
 ## Features
 - [x] Different writing modes
