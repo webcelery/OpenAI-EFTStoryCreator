@@ -5,7 +5,8 @@ import org.example.model.CharacterStrategy;
 import org.example.model.RaidReportStrategy;
 import org.example.view.MainFrame;
 
-import javax.swing.*;
+import javafx.application.Platform;
+import javafx.stage.Window;
 
 //     (parameter) -> {body} = lambda expression
 
@@ -27,12 +28,11 @@ public class MainController
 
     private void setObservers()
     {
-        aiController.setStoryObserver( // update output panel with content from response
-                text -> SwingUtilities.invokeLater(() -> view.getOutputPanel().setText(text))
-        );
-        aiController.setStatusObserver( // update status label
-                status -> SwingUtilities.invokeLater(() -> view.getControlPanel().setStatus(status))
-        );
+        // update output panel with content from response
+        aiController.setStoryObserver(text -> Platform.runLater(() -> view.getOutputPanel().setText(text)));
+
+        // update status label
+        aiController.setStatusObserver(status -> Platform.runLater(() -> view.getControlPanel().setStatus(status)));
     }
 
     private void setControls()
@@ -60,30 +60,35 @@ public class MainController
         }
 
         view.getControlPanel().setStatus("Creating...");
-
         aiController.createStory(
                 strategy,
                 mode,
                 view.getInputPanel().getCharacters(),
-                view.getInputPanel().getStyle()
+                view.getInputPanel().getSelectedStyle()
         );
     }
 
-    private void handleSave() // saves current story to file
-    {
-        saveLoadController.save(
-                view,
-                view.getOutputPanel().getText(),
-                (status) -> view.getControlPanel().setStatus(status)
-        );
+    // get window for save/load dialog and prevent null pointer exception
+    private Window scene()
+    { // get window from input panel, it doesn't matter which panel we get it from
+        return view.getInputPanel().getScene() != null ? view.getInputPanel().getScene().getWindow() : null;
+
+        /* works too
+        return view.getControlPanel().getScene() != null ? view.getControlPanel().getScene().getWindow() : null;
+        return view.getOutputPanel().getScene() != null ? view.getOutputPanel().getScene().getWindow() : null;
+        */
     }
 
-    private void handleLoad() // loads story from file
+    private void handleSave()
     {
-        saveLoadController.load(
-                view,
-                (text) -> view.getOutputPanel().setText(text),
-                (status) -> view.getControlPanel().setStatus(status)
-        );
+        saveLoadController.save(scene(), view.getOutputPanel().getText(),
+                status -> view.getControlPanel().setStatus(status));
+    }
+
+    private void handleLoad()
+    {
+        saveLoadController.load(scene(),
+                text -> view.getOutputPanel().setText(text),
+                status -> view.getControlPanel().setStatus(status));
     }
 }

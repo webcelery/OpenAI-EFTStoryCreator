@@ -2,50 +2,47 @@ package org.example.view;
 
 import org.example.util.JSONUtil;
 
-import javax.swing.*;
-import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
-public class InputPanel extends JPanel
+import javafx.scene.layout.VBox;
+import javafx.geometry.Insets;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
+import javafx.scene.control.Label;
+import javafx.scene.control.SelectionMode;
+
+public class InputPanel extends VBox // VBox arranges controls in a single vertical column
 {
-    final JComboBox<String> mode = new JComboBox<>();
-    final JList<String> characterList = new JList<>();
-    final JComboBox<String> style = new JComboBox<>();
+    final ComboBox<String> mode = new ComboBox<>();
+    final ComboBox<String> style = new ComboBox<>();
+    final ListView<String> characterList = new ListView<>();
 
-    InputPanel()
+    public InputPanel()
     {
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        setPadding(new Insets(10));
 
-        add(new JLabel("Mode"));
-        mode.addItem("Speech");
-        mode.addItem("Raid Report");
-        mode.setMaximumSize(new Dimension(200, 25));
-        add(mode);
+        Label modeLabel = new Label("Mode");
+        mode.getItems().addAll("Speech", "Raid Report");
+        mode.setValue("Speech");
 
-        add(new JLabel("Style"));
-        style.addItem("Script");
-        style.addItem("Action");
-        style.setSelectedItem("Script");
-        style.setMaximumSize(new Dimension(200, 25));
-        add(style);
+        Label styleLabel = new Label("Style");
+        style.getItems().addAll("Script", "Action");
+        style.setValue("Script");
 
-        add(new JLabel("Characters"));
-        List<String> characters = JSONUtil.loadCharacterNames();
-        characterList.setListData(characters.toArray(new String[0]));
-        characterList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        Label charactersLabel = new Label("Characters");
+        List<String> characterNames = JSONUtil.loadCharacterNames();
+        characterList.getItems().addAll(characterNames);
+        characterList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
-        JScrollPane scroll = new JScrollPane(characterList);
-        add(scroll);
+        getChildren().addAll(modeLabel, mode, styleLabel, style, charactersLabel, characterList);
     }
 
-    public String getMode() { return (String) mode.getSelectedItem(); }
-    public String getStyle()
-    {
-        return (String) style.getSelectedItem();
-    }
+    public String getMode() { return mode.getValue(); }
+    public String getSelectedStyle() { return style.getValue(); }
+
     public List<String> getCharacters()
     {
-        return characterList.getSelectedValuesList();
+        return new ArrayList<>(characterList.getSelectionModel().getSelectedItems());
     }
 }

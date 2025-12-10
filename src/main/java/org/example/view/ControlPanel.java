@@ -1,40 +1,30 @@
 package org.example.view;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionListener;
+import javafx.scene.layout.HBox;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.geometry.Insets;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 
-public class ControlPanel extends JPanel
+public class ControlPanel extends HBox // HBox arranges controls for horizontal layout
 {
-    public final JButton createButton = new JButton("Create Story");
-    public final JButton saveButton = new JButton("Save");
-    public final JButton loadButton = new JButton("Load");
-    public final JLabel statusLabel = new JLabel("");
+    public final Button createButton = new Button("Create Story");
+    public final Button saveButton = new Button("Save");
+    public final Button loadButton = new Button("Load");
+    public final Label statusLabel = new Label("");
 
     public ControlPanel()
     {
-        setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
-
-        add(createButton);
-        add(saveButton);
-        add(loadButton);
-        add(statusLabel);
+        setSpacing(10);
+        setPadding(new Insets(10));
+        getChildren().addAll(createButton, saveButton, loadButton, statusLabel);
     }
 
-    public void create(ActionListener listener)
-    {
-        createButton.addActionListener(listener);
-    }
-
-    public void save(ActionListener listener)
-    {
-        saveButton.addActionListener(listener);
-    }
-
-    public void load(ActionListener listener)
-    {
-        loadButton.addActionListener(listener);
-    }
-
+    // "EventHandler<ActionEvent> handler" allows passing a method to handle button clicks
+    public void create(EventHandler<ActionEvent> handler) { createButton.setOnAction(handler); }
+    public void save(EventHandler<ActionEvent> handler) { saveButton.setOnAction(handler); }
+    public void load(EventHandler<ActionEvent> handler) { loadButton.setOnAction(handler); }
+    
     public void setStatus(String string) { statusLabel.setText(string); }
 }
