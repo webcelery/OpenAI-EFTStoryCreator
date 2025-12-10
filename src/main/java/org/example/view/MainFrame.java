@@ -1,26 +1,25 @@
 package org.example.view;
 
-import javax.swing.*;
-import java.awt.*;
+import javafx.scene.layout.BorderPane; 
 
-public class MainFrame extends JFrame
+public class MainFrame
 {
     private final InputPanel inputPanel = new InputPanel();
     private final OutputPanel outputPanel = new OutputPanel();
     private final ControlPanel controlPanel = new ControlPanel();
 
-    public MainFrame()
+    // create BorderPane layout to contain the panels
+    private final BorderPane layout = new BorderPane(); 
+
+    public MainFrame() // of the five regions only use left, center, and bottom
     {
-        setTitle("Escape From Tarkov Story Generator");
-        setSize(960, 400);
-
-        add(inputPanel, BorderLayout.WEST);
-        add(outputPanel, BorderLayout.CENTER);
-        add(controlPanel, BorderLayout.SOUTH);
-
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        layout.setLeft(inputPanel);
+        layout.setCenter(outputPanel);
+        layout.setBottom(controlPanel); 
     }
 
+    public BorderPane getLayout() { return layout; }
+        
     public InputPanel getInputPanel() { return inputPanel; }
     public OutputPanel getOutputPanel() { return outputPanel; }
     public ControlPanel getControlPanel() { return controlPanel; }
