@@ -2,6 +2,7 @@ package org.example.view;
 
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
+import javafx.geometry.Insets;
 
 public class OutputPanel extends BorderPane // BorderPane layout to center story
 {
@@ -10,6 +11,7 @@ public class OutputPanel extends BorderPane // BorderPane layout to center story
     public OutputPanel()
     {
         textArea.setWrapText(true);
+        setPadding(new Insets(10));
 
         // this is not the same as setCenter in MainFrame
         setCenter(textArea); // places text inside the outputPanel
