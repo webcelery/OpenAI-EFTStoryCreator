@@ -21,6 +21,7 @@ public class InputPanel extends VBox // VBox arranges controls in a single verti
     public InputPanel()
     {
         setPadding(new Insets(10));
+        setSpacing(5);
 
         Label modeLabel = new Label("Mode");
         mode.getItems().addAll("Speech", "Raid Report");
