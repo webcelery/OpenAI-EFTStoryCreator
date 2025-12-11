@@ -1,9 +1,14 @@
 # Escape From Tarkov Story Generator
 
-## OpenAI Setup
-1. Ensure your API key is an environment variable named `OPENAI_API_KEY`
-2. Directly hardcode and replace `null` with API key inside `OpenAIService api = new OpenAIService(null);` ***NOT RECOMMENDED***!
-3. Run Main
+## Program Setup
+1. Reload All Maven Projects
+2. Setup SDK
+3. Import JavaFX lib
+4. Make config 
+- VM option : --module-path "path\to\lib" --add-modules javafx.controls,javafx.fxml
+5. Ensure your API key is an environment variable named `OPENAI_API_KEY`
+6. Directly hardcode and replace `null` with API key inside `OpenAIService api = new OpenAIService(null);` ***NOT RECOMMENDED***!
+7. Run
 
 ## Features
 - [x] Different writing modes
