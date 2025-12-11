@@ -26,4 +26,4 @@
 - `StoryObserver` and `StatusObserver` defined by `AIController` use `MainController` to update UI. 
 - Singleton: `OpenAIService/OpenAIClient` ensures only one instance of the API is created.  
 
-## Demo: https://youtu.be/ez_i8DFBgow
+## Demo: https://drive.google.com/file/d/1gyuEGlKrTRWU43Yevn2lVIo8lZWuFxWA/view?usp=sharing
