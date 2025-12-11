@@ -16,6 +16,10 @@ public class MainFrame
         layout.setLeft(inputPanel);
         layout.setCenter(outputPanel);
         layout.setBottom(controlPanel); 
+
+        inputPanel.getStyleClass().add("input-panel");
+        outputPanel.getStyleClass().add("output-panel");
+        controlPanel.getStyleClass().add("control-panel");
     }
 
     public BorderPane getLayout() { return layout; }
