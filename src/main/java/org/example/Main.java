@@ -26,6 +26,8 @@ public class Main extends Application
         SaveLoadController saveLoadController = new SaveLoadController();
 
         Scene scene = new Scene(frame.getLayout(), 960, 400);
+        scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+        
         primaryStage.setTitle("Escape From Tarkov Story Generator");
         primaryStage.setScene(scene);
         primaryStage.show();
