@@ -27,6 +27,7 @@
 - Singleton: `OpenAIService/OpenAIClient` ensures only one instance of the API is created.  
 
 ## Output
+Both images show example stories returned by the API based on inputs from the control panel. 
 <img width="1342" height="602" alt="killa-story" src="https://github.com/user-attachments/assets/8785580a-5f67-4902-a0fc-3d87904857e3" />
 <img width="1342" height="602" alt="shturman-story" src="https://github.com/user-attachments/assets/89cab6b7-0a9b-4de4-a831-4b33a1d51f5e" />
 
